@@ -1,4 +1,7 @@
-const socket = io('localhost:3000');
+// local development socket
+//const socket = io('localhost:3000');
+// heroku deployment socket
+const socket = io('https://serene-bastion-73077.herokuapp.com/');
 
 const initialScreen = document.getElementById('initialScreen');
 const playerListScreen = document.getElementById('playerListScreen');
