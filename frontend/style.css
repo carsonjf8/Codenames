@@ -1,0 +1,53 @@
+.mybtn {
+    width: 200px;
+    height: 100px;
+    padding: 5px;
+    margin: 5px;
+    background-color: gray;
+    font-weight: bold;
+    font-size: 24;
+    color: white;
+}
+
+.optionBtn {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: gray;
+    color: white;
+    border: none;
+}
+
+.redTeamHeader {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: red;
+    color: white;
+}
+.blueTeamHeader {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: blue;
+    color: white;
+}
+.redTeamMember {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: red;
+    color: white;
+}
+.blueTeamMember {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: blue;
+    color: white;
+}

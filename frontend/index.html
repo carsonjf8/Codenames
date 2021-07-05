@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Codenames</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #gameScreen {
+            display: none;
+        }
+    </style>
+</head>
+<body style="background-color: lightgray">
+    <section class='vh-100'>
+        <div class='container h-100'>
+
+            <div id='initialScreen' class='h-100'>
+                <div class='d-flex flex-column align-items-center justify-content-center h-100'>
+                    <h1>Codenames</h1>
+                    <div class='form-group'>
+                        <input type='text' placeholder='Enter Your Username' id='usernameInput'/>
+                    </div>
+                    <button
+                        type='submit'
+                        class='btn btn-success'
+                        id='newGameButton'
+                    >
+                        Create New Game
+                    </button>
+                    <div>OR</div>
+                    <div class='form-group'>
+                        <input type='text' placeholder='Enter Game Code' id='gameCodeInput'/>
+                    </div>
+                    <button
+                        type='submit'
+                        class='btn btn-success'
+                        id='joinGameButton'
+                    >
+                        Join Game
+                    </button>
+                </div>
+            </div>
+
+            <div id='gameScreen' class='h-100'>
+                <div class='d-flex flex-column align-items-center justify-content-center h-100'>
+                    <h1>Your game code is: <span id='gameCodeDisplay'></span></h1>
+
+                    <div class='grid'>
+                        <div class='row'>
+                            <h3 class="redTeamHeader">Red Team</h3>
+                            <h3 class="blueTeamHeader">Blue Team</h3>
+                            <button id='spymasterBtn' class='optionBtn'>Spymaster</button>
+                        </div>
+                        <div class='row'>
+                            <h3 id='redP1' class="redTeamMember"></h3>
+                            <h3 id='blueP1' class="blueTeamMember"></h3>
+                            <button id='switchTeamBtn' class='optionBtn'>Switch Teams</button>
+                        </div>
+                        <div class='row'>
+                            <h3 id='redP2' class="redTeamMember"></h3>
+                            <h3 id='blueP2' class="blueTeamMember"></h3>
+                            <button id='startGameBtn' class='optionBtn'>Start Game</button>
+                        </div>
+                        <div class='row'>
+                            <h3 id='redP3' class="redTeamMember"></h3>
+                            <h3 id='blueP3' class="blueTeamMember"></h3>
+                        </div>
+                        <div class='row'>
+                            <h3 id='redP4' class="redTeamMember"></h3>
+                            <h3 id='blueP4' class="blueTeamMember"></h3>
+                        </div>
+                        <div class='row'>
+                            <h3 id='redP5' class="redTeamMember"></h3>
+                            <h3 id='blueP5' class="blueTeamMember"></h3>
+                        </div>
+                    </div>
+
+                    <h3 >Cards left: <span id='redScoreDisplay' style="color: red">9</span> - <span id='blueScoreDisplay' style="color: blue">8</span></h3>
+                    <h3 id='teamTurnDisplay'></h3>
+
+                    <div class='grid'>
+                        <div class="row">
+                            <button id='label1' class="btn mybtn">1</button>
+                            <button id='label2' class="btn mybtn">2</button>
+                            <button id='label3' class="btn mybtn">3</button>
+                            <button id='label4' class="btn mybtn">4</button>
+                            <button id='label5' class="btn mybtn">5</button>
+                        </div>
+                    
+                        <div class="row">
+                            <button id='label6' class="btn mybtn">6</button>
+                            <button id='label7' class="btn mybtn">7</button>
+                            <button id='label8' class="btn mybtn">8</button>
+                            <button id='label9' class="btn mybtn">9</button>
+                            <button id='label10' class="btn mybtn">10</button>
+                        </div>
+
+                        <div class="row">
+                            <button id='label11' class="btn mybtn">11</button>
+                            <button id='label12' class="btn mybtn">12</button>
+                            <button id='label13' class="btn mybtn">13</button>
+                            <button id='label14' class="btn mybtn">14</button>
+                            <button id='label15' class="btn mybtn">15</button>
+                        </div>
+
+                        <div class="row">
+                            <button id='label16' class="btn mybtn">16</button>
+                            <button id='label17' class="btn mybtn">17</button>
+                            <button id='label18' class="btn mybtn">18</button>
+                            <button id='label19' class="btn mybtn">19</button>
+                            <button id='label20' class="btn mybtn">20</button>
+                        </div>
+
+                        <div class="row">
+                            <button id='label21' class="btn mybtn">21</button>
+                            <button id='label22' class="btn mybtn">22</button>
+                            <button id='label23' class="btn mybtn">23</button>
+                            <button id='label24' class="btn mybtn">24</button>
+                            <button id='label25' class="btn mybtn">25</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js'></script>
+    <script src="index.js"></script>
+</body>
+</html>
