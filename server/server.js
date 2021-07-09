@@ -1,5 +1,5 @@
 const io = require('socket.io')();
-const { updateGame, initGame, becomeSpymaster, switchTeams, startGame } = require('./game');
+const { updateGame, initGame, becomeSpymaster, switchTeams, startGame, endTurn } = require('./game');
 const { MAX_PLAYERS } = require('./constants');
 const { makeid } = require('./utils');
 
@@ -14,6 +14,7 @@ io.on('connection', client => {
     client.on('becomeSpymaster', handleBecomeSpymaster);
     client.on('switchTeams', handleSwitchTeams);
     client.on('startGame', handleStartGame);
+    client.on('endTurn', handleEndTurn);
 
     function handleJoinGame(roomName, playerName) {
         const room = io.sockets.adapter.rooms[roomName];
@@ -90,6 +91,11 @@ io.on('connection', client => {
 
     function handleStartGame() {
         state[clientRooms[client.id]] = startGame(state[clientRooms[client.id]]);
+        emitGameState(clientRooms[client.id], state[clientRooms[client.id]]);
+    }
+
+    function handleEndTurn() {
+        state[clientRooms[client.id]] = endTurn(state[clientRooms[client.id]]);
         emitGameState(clientRooms[client.id], state[clientRooms[client.id]]);
     }
 });

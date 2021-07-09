@@ -12,6 +12,7 @@ const joinGameBtn = document.getElementById('joinGameButton');
 const spymasterBtn = document.getElementById('spymasterBtn');
 const switchTeamBtn = document.getElementById('switchTeamBtn');
 const startGameBtn = document.getElementById('startGameBtn');
+const endTurnBtn = document.getElementById('endTurnBtn');
 
 const gameCodeInput = document.getElementById('gameCodeInput');
 const usernameInput = document.getElementById('usernameInput');
@@ -69,6 +70,7 @@ joinGameBtn.addEventListener('click', joinGame);
 spymasterBtn.addEventListener('click', becomeSpymaster);
 switchTeamBtn.addEventListener('click', switchTeams);
 startGameBtn.addEventListener('click', startGame);
+endTurnBtn.addEventListener('click', endTurn);
 
 for(let i = 0; i < 25; i++) {
     labels[i].addEventListener('click', function() { buttonClicked(i); });
@@ -122,6 +124,16 @@ function init() {
 
 function paintGame(gameState) {
     state = JSON.parse(gameState);
+
+    if(isSpymaster) {
+        endTurnBtn.disabled = true;
+    }
+    else if(state.teamTurn === teamNumber) {
+        endTurnBtn.disabled = false;
+    }
+    else {
+        endTurnBtn.disabled = true;
+    }
 
     // reset player displays
     for(let i = 0; i < 5; i++) {
@@ -231,6 +243,10 @@ function switchTeams() {
 
 function startGame() {
     socket.emit('startGame');
+}
+
+function endTurn() {
+    socket.emit('endTurn');
 }
 
 function handleInit(number) {

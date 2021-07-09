@@ -7,6 +7,7 @@ module.exports = {
     becomeSpymaster,
     switchTeams,
     startGame,
+    endTurn,
 }
 
 function initGame() {
@@ -224,5 +225,10 @@ function switchTeams(state, playerNumber, username) {
 
 function startGame(state) {
     state.active = true;
+    return state;
+}
+
+function endTurn(state) {
+    state.teamTurn = (state.teamTurn + 1) % 2;
     return state;
 }
